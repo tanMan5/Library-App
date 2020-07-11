@@ -1,6 +1,7 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
+const exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -8,9 +9,13 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 5000;
 const db = require("./models");
 const { prototype } = require("stream");
-
+// ****** This console log added just to avoid travis error ******
+console.log(prototype);
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -33,6 +38,6 @@ db.sequelize.sync().then(() => {
       PORT,
       PORT
     );
-    console.log(PORT);
   });
+
 });
