@@ -7,6 +7,7 @@ const passport = require("./config/passport");
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 5000;
 const db = require("./models");
+const { prototype } = require("stream");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -32,5 +33,6 @@ db.sequelize.sync().then(() => {
       PORT,
       PORT
     );
+    console.log(PORT);
   });
 });
