@@ -16,33 +16,34 @@ function getBooks() {
     let image = "";
     let url = "";
 
+    
     for (let i = 0; i < response.items.length; i++) {
-      title = $(
-        '<p class = "test">' + response.items[i].volumeInfo.title + "</p>"
-      );
-      image = $(
-        '<img class = "test"><br><a href' +
-          response.items[i].volumeInfo.infoLink +
-          '><button id = "imgButton" class = "btnWantRead"> Want to Read? </button></a>'
-      );
-      author = $(
-        '<p class = "test"> By: ' +
-          response.items[i].volumeInfo.authors +
-          "</p>"
-      );
-      url = response.items[i].volumeInfo.imageLinks.thumbnail;
+      let newDiv = $("<div></div>")
+      newDiv.addClass("eachBook");
+      title = $('<p class = "title">' + response.items[i].volumeInfo.title + '</p>');
+      image = $('<img class = "image"><br><a href' + response.items[i].volumeInfo.infoLink + '><button id = "imgButton" class = "btnWantRead"> Want to Read? </button></a>');
+      author = $('<p class = "author"> By: ' + response.items[i].volumeInfo.authors + '</p>');
+      url =  response.items[i].volumeInfo.imageLinks.thumbnail;
 
-      image.attr("src", url);
-
-      title.appendTo(".bookList");
-      author.appendTo(".bookList");
-      image.appendTo(".bookList");
+      image.attr('src',url);
+      newDiv.append(title,author,image);
+      newDiv.appendTo($(".bookList"));
     }
   });
 }
 
 // Book search button
-$(".searchButton").on("click", e => {
-  e.preventDefault();
-  getBooks();
+$(".searchButton").on("click", function (e) {
+  e.preventDefault();  
+    getBooks();  
 });
+
+// Want to Read button event handler
+$(document).on("click", ".btnWantRead" ,function (e) {
+  e.preventDefault();  
+  const selectedBook = $(this).siblings(".title");
+  console.log(selectedBook);
+});
+
+
+
