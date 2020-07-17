@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   const Books = sequelize.define("Books", {
-    bookId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      len: [1]
-    },
+    // bookId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   len: [1]
+    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
