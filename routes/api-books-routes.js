@@ -34,16 +34,23 @@ module.exports = function(app) {
     });
   });
 
-  app.put("/api/member/:id", function(req, res) {
-    const condition = "id = " + req.params.id;
-    books.updateOne({
-      read: req.body.read
-    }, condition, function(result) {
-      if (result.changedRows == 0) {
-        return res.status(404).end();
-        } else {
-          res.status(200).end();
-        }
+  app.put("/api/members", function(req, res) {
+    console.log(req.body);
+    // const condition = "id = " + req.params.id;
+    db.Books.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        } 
+
+      // read: req.body.read
+    // }, condition, function(result) {
+    //   if (result.changedRows == 0) {
+    //     return res.status(404).end();
+    //     } else {
+    //       res.status(200).end();
+    //     }
     });
   });
 
