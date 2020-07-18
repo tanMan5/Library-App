@@ -45,6 +45,8 @@ $(".searchButton").on("click", e => {
   getBooks();
 });
 
+getBookList();
+
 // Want to Read button event handler
 $(document).on("click", ".btnWantRead", e => {
   e.preventDefault();
@@ -73,7 +75,7 @@ $(document).on("click", ".btnWantRead", e => {
     data: newBook
   }).then(() => {
     console.log("new book created");
-    // location.reload();
+    location.reload();
   });
 
   getBookList()
@@ -85,9 +87,34 @@ $(document).on("click", ".btnWantRead", e => {
 function createBookDiv(bookData) {
   let newDiv = $("<div></div>");
   newDiv.data("book", bookData);
-  newDiv.append("<p>" + bookData.title + "</p>");
-  newDiv.append("<p>" + bookData.author + "</p>");
-  newDiv.append("<img>" + bookData.url + "</img>");
+  let titlePara = $("<p>" + bookData.title + "</p>")
+  newDiv.append(titlePara);
+
+  titlePara.addClass( "title" );
+  
+
+  let authorPara = $("<p>" + bookData.title + "</p>")
+  newDiv.append(authorPara);
+
+  authorPara.addClass( "author" );
+  // image = response.items[i].volumeInfo.infoLink +
+  //     // "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
+  
+  let image = $("<img src='" + bookData.url + "'/>")
+  // <button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button>
+
+//   // *****************************
+//   var urlToImage = require('url-to-image');
+// urlToImage(bookData.url, 'google.png').then(function() {
+//     // now google.png exists and contains screenshot of google.com
+// }).catch(function(err) {
+//     console.error(err);
+// });
+
+  // *****************************
+
+
+  newDiv.append(image);
   return newDiv;
 }
 
