@@ -44,6 +44,13 @@
 
     <div class="col-md-4">
       <h4 class="readBook">Books Read!</h4>
+      <ul>
+        {{#each books}}
+          {{#if newFinished}}
+            {{> books/book-block newFinished=True}}
+          {{/if}}
+        {{/each}}
+      </ul>
       <div class="bookRead"></div>
     </div>
 
