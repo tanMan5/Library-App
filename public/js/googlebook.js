@@ -49,24 +49,32 @@ $(document).on("click", ".btnWantRead" ,function (e) {
   const url = selectedBook.children[2].src;
   console.log(url)
 
-
+var UserId = $(".member-id");
+console.log(UserId)
 // Constructing a book object to hand to the database
 const newBook = {
   title: title,
   author: author,
-  url: url
+  url: url,
+  UserId: UserId.text()
 };
 console.log(newBook)
-submitBook(newBook);
+// submitBook(newBook);
 
 
 // Submits a new book 
-function submitBook(book) {
-$.post("/", book, function() {
-  // window.location.href = "/";
-});
-}
-
+// function submitBook(book) {
+// $.post("/api/members", book, function() {
+//   // window.location.href = "/";
+// });
+// }
+$.ajax("/api/members", {
+  type: "POST",
+  data: newBook
+}).then(function() {
+  console.log("new book created")
+  location.reload();
+})
 
 
 });
