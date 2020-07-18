@@ -18,7 +18,8 @@ module.exports = function(app) {
       title: req.body.title,
       author: req.body.author,
       url: req.body.url,
-      UserId: req.body.UserId
+      UserId: req.body.UserId,
+      read: req.body.read
     }).then(dbBook => {
       res.json(dbBook);
     });
@@ -33,6 +34,18 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/member/:id", function(req, res) {
+    const condition = "id = " + req.params.id;
+    books.updateOne({
+      read: req.body.read
+    }, condition, function(result) {
+      if (result.changedRows == 0) {
+        return res.status(404).end();
+        } else {
+          res.status(200).end();
+        }
+    });
+  });
 
 
 

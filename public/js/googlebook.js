@@ -24,8 +24,8 @@ function getBooks() {
       );
       image = $(
         "<img class = 'image'><br><a href" +
-          response.items[i].volumeInfo.infoLink +
-          "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
+        response.items[i].volumeInfo.infoLink +
+        "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
       );
       author = $(
         "<p class = 'author'>" + response.items[i].volumeInfo.authors + "</p>"
@@ -66,7 +66,8 @@ $(document).on("click", ".btnWantRead", e => {
     title: title,
     author: author,
     url: url,
-    UserId: UserId.text()
+    UserId: UserId.text(),
+    read: false
   };
   console.log(newBook);
 
@@ -90,26 +91,27 @@ function createBookDiv(bookData) {
   let titlePara = $("<p>" + bookData.title + "</p>")
   newDiv.append(titlePara);
 
-  titlePara.addClass( "title" );
-  
+  titlePara.addClass("title");
+
 
   let authorPara = $("<p>" + bookData.title + "</p>")
   newDiv.append(authorPara);
 
-  authorPara.addClass( "author" );
-  // image = response.items[i].volumeInfo.infoLink +
-  //     // "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
-  
-  let image = $("<img src='" + bookData.url + "'/>")
+  authorPara.addClass("author");
+
+
+  let image = $("<img src='" + bookData.url + "'/>" + "<br>" +
+    "<button id = 'imgButton' class = 'btnFinished btn btn-warning'> Finished? </button></a>");
+
   // <button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button>
 
-//   // *****************************
-//   var urlToImage = require('url-to-image');
-// urlToImage(bookData.url, 'google.png').then(function() {
-//     // now google.png exists and contains screenshot of google.com
-// }).catch(function(err) {
-//     console.error(err);
-// });
+  //   // *****************************
+  //   var urlToImage = require('url-to-image');
+  // urlToImage(bookData.url, 'google.png').then(function() {
+  //     // now google.png exists and contains screenshot of google.com
+  // }).catch(function(err) {
+  //     console.error(err);
+  // });
 
   // *****************************
 
@@ -118,24 +120,48 @@ function createBookDiv(bookData) {
   return newDiv;
 }
 
-// Function for retrieving books and getting them ready to be rendered to the page
-function getBookList() {
-  $.get("/api/members", function(data) {
-    var rowsToAdd = [];
-    for (let i = 0; i < data.length; i++) {
-      rowsToAdd.push(createBookDiv(data[i]));
-    }
-    renderBookList(rowsToAdd);
-    
-  });
-}
 
-// A function for rendering the list of books to the page
-function renderBookList(rows) {
-  let bookList = $(".bookSelected")
-  if (rows.length) {
-    console.log(rows);
-    bookList.append(rows);
+$(function () {
+  $(".btnFinished").on("click", function (event) {
+    const id = $(this).data("id");
+    const finishedBook = $(this).data("finishedBook");
+
+    const newReadStatus = {
+      read: finishedBook
+    };
+
+    $.ajax("/api/members" + id, {
+      type: "PUT",
+      data: newReadStatus
+    }).then(
+      function () {
+        console.log("changed read to", finishedBook);
+        location.reload();
+      }
+    );
+
+  });
+});
+
+  // Function for retrieving books and getting them ready to be rendered to the page
+  function getBookList() {
+    $.get("/api/members", function (data) {
+      var rowsToAdd = [];
+      for (let i = 0; i < data.length; i++) {
+        rowsToAdd.push(createBookDiv(data[i]));
+      }
+      renderBookList(rowsToAdd);
+
+    });
   }
-  
-}
+
+  // A function for rendering the list of books to the page
+  function renderBookList(rows) {
+    let bookList = $(".bookSelected")
+    if (rows.length) {
+      console.log(rows);
+      bookList.append(rows);
+    }
+
+  }
+
