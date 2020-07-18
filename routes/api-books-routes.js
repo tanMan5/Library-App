@@ -11,19 +11,16 @@ module.exports = function(app) {
   //   });
   // });
 
-
   app.post("/api/members", (req, res) => {
-    // Create an Book 
+    // Create an Book
     console.log(req.body);
     db.Books.create({
       title: req.body.title,
       author: req.body.author,
       url: req.body.url,
       UserId: req.body.UserId
-    })
-      .then(function(dbBook) {
+    }).then(dbBook => {
       res.json(dbBook);
     });
   });
-}
-
+};

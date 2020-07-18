@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Books, {
       onDelete: "cascade"
     });
-  }
+  };
 
   return User;
 };

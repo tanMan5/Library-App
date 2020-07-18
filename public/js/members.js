@@ -4,6 +4,8 @@ $(document).ready(() => {
   $.get("/api/user_data").then(data => {
     console.log(data);
     $(".member-name").text(data.name);
-    $(".member-id").text(data.id);
+    $(".member-id")
+      .text(data.id)
+      .hide();
   });
 });
