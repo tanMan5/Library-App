@@ -23,4 +23,17 @@ module.exports = function(app) {
       res.json(dbBook);
     });
   });
+
+
+  app.get("/api/members", function(req, res) {
+    db.Books.findAll({
+      // include: [db.Post]
+    }).then(function(dbBook) {
+      res.json(dbBook);
+    });
+  });
+
+
+
+
 };

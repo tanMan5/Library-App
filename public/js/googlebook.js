@@ -58,6 +58,7 @@ $(document).on("click", ".btnWantRead", e => {
 
   const UserId = $(".member-id");
   console.log(UserId);
+
   // Constructing a book object to hand to the database
   const newBook = {
     title: title,
@@ -72,6 +73,42 @@ $(document).on("click", ".btnWantRead", e => {
     data: newBook
   }).then(() => {
     console.log("new book created");
-    location.reload();
+    // location.reload();
   });
+
+  getBookList()
+
 });
+
+
+// Function for creating a new book div
+function createBookDiv(bookData) {
+  let newDiv = $("<div></div>");
+  newDiv.data("book", bookData);
+  newDiv.append("<p>" + bookData.title + "</p>");
+  newDiv.append("<p>" + bookData.author + "</p>");
+  newDiv.append("<img>" + bookData.url + "</img>");
+  return newDiv;
+}
+
+// Function for retrieving books and getting them ready to be rendered to the page
+function getBookList() {
+  $.get("/api/members", function(data) {
+    var rowsToAdd = [];
+    for (let i = 0; i < data.length; i++) {
+      rowsToAdd.push(createBookDiv(data[i]));
+    }
+    renderBookList(rowsToAdd);
+    
+  });
+}
+
+// A function for rendering the list of books to the page
+function renderBookList(rows) {
+  let bookList = $(".bookSelected")
+  if (rows.length) {
+    console.log(rows);
+    bookList.append(rows);
+  }
+  
+}
