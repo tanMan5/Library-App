@@ -32,7 +32,7 @@ form.signup {
     color: white;
   } */
   .signup p.submit {
-    text-align: right;
+    text-align: center;
   }
    
   /* .signup-help {
@@ -62,7 +62,7 @@ form.signup {
     font-size: 13px;
   }
   .container {
-    margin: 10px 20px ;
+    margin: auto ;
     width: 100%;
   }
   .signup:before {
@@ -73,12 +73,12 @@ form.signup {
     bottom: -8px;
     left: -8px;
     z-index: -1;
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(233, 151, 214, 0.863);
     border-radius: 4px;
   }
    
   .signup h1 {
-    margin: -20px -20px 21px;
+    margin: auto;
     line-height: 40px;
     font-size: 15px;
     font-weight: bold;
@@ -97,11 +97,11 @@ form.signup {
   }
    
   .signup p {
-    margin: 20px 0 0;
+    margin: auto;
   }
    
   .signup p:first-child {
-    margin-top: 0;
+    margin-top: auto;
   }
    
   .signup input[type=text], .signup input[type=password] {
@@ -135,7 +135,7 @@ form.signup {
   }
    
   input[type=text], input[type=password] {
-    margin: 5px;
+    margin: auto;
     padding: 0 10px;
     width: 200px;
     height: 34px;
@@ -269,13 +269,13 @@ body {
 } */
 .login:before {
   content: '';
-  position: absolute;
+  position: ;
   top: -8px;
   right: -8px;
   bottom: -8px;
   left: -8px;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(233, 151, 214, 0.863);
   border-radius: 4px;
 }
  
