@@ -22,7 +22,7 @@ function getBooks() {
       newDiv.addClass("eachBook");
       title = $('<p class = "title">' + response.items[i].volumeInfo.title + '</p>');
       image = $('<img class = "image"><br><a href' + response.items[i].volumeInfo.infoLink + '><button id = "imgButton" class = "btnWantRead"> Want to Read? </button></a>');
-      author = $('<p class = "author"> By: ' + response.items[i].volumeInfo.authors + '</p>');
+      author = $('<p class = "author">' + response.items[i].volumeInfo.authors + '</p>');
       url =  response.items[i].volumeInfo.imageLinks.thumbnail;
 
       image.attr('src',url);
@@ -41,8 +41,34 @@ $(".searchButton").on("click", function (e) {
 // Want to Read button event handler
 $(document).on("click", ".btnWantRead" ,function (e) {
   e.preventDefault();  
-  const selectedBook = $(this).siblings(".title");
-  console.log(selectedBook);
+  const selectedBook = e.target.parentNode.parentNode;
+  const title = selectedBook.children[0].textContent
+  console.log(title)
+  const author = selectedBook.children[1].textContent
+  console.log(author)
+  const url = selectedBook.children[2].src;
+  console.log(url)
+
+
+// Constructing a book object to hand to the database
+const newBook = {
+  title: title,
+  author: author,
+  url: url
+};
+console.log(newBook)
+submitBook(newBook);
+
+
+// Submits a new book 
+function submitBook(book) {
+$.post("/", book, function() {
+  // window.location.href = "/";
+});
+}
+
+
+
 });
 
 
