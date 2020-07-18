@@ -76,7 +76,7 @@ $(document).on("click", ".btnWantRead", e => {
     data: newBook
   }).then(() => {
     console.log("new book created");
-    location.reload();
+    // location.reload();
   });
 
   getBookList()
@@ -87,11 +87,15 @@ $(document).on("click", ".btnWantRead", e => {
 // Function for creating a new book div
 function createBookDiv(bookData) {
   let newDiv = $("<div></div>");
-  newDiv.data("book", bookData);
+  newDiv.data(bookData);
+  let id = bookData.id;
+  console.log(id)
+
   let titlePara = $("<p>" + bookData.title + "</p>")
   newDiv.append(titlePara);
 
   titlePara.addClass("title");
+
 
 
   let authorPara = $("<p>" + bookData.title + "</p>")
@@ -122,17 +126,15 @@ function createBookDiv(bookData) {
 
 
 $(function () {
-  $(".btnFinished").on("click", function (event) {
-    const id = $(this).data("id");
-    const finishedBook = $(this).data("finishedBook");
+  $(document).on("click", ".btnFinished", function (e) {
 
-    const newReadStatus = {
-      read: finishedBook
-    };
+    const selectedBook = $(this).parent().data();
+    selectedBook.read = true;
+    console.log(selectedBook);
 
-    $.ajax("/api/members" + id, {
+    $.ajax("/api/members", {
       type: "PUT",
-      data: newReadStatus
+      data: selectedBook
     }).then(
       function () {
         console.log("changed read to", finishedBook);
@@ -146,6 +148,7 @@ $(function () {
   // Function for retrieving books and getting them ready to be rendered to the page
   function getBookList() {
     $.get("/api/members", function (data) {
+      console.log(data)
       var rowsToAdd = [];
       for (let i = 0; i < data.length; i++) {
         rowsToAdd.push(createBookDiv(data[i]));
