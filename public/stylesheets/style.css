@@ -73,8 +73,8 @@ form.signup {
     bottom: -8px;
     left: -8px;
     z-index: -1;
-    background: rgba(233, 151, 214, 0.863);
-    border-radius: 4px;
+    background: rgba(151, 166, 233, 0.863);
+    border-radius: 50px;
   }
    
   .signup h1 {
@@ -165,7 +165,7 @@ form.signup {
     background: white;
     border: 1px solid;
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-    border-radius: 2px;
+    border-radius: 25px;
     outline: 5px solid #eff4f7;
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -188,7 +188,7 @@ form.signup {
     background: #cde5ef;
     border: 1px solid;
     border-color: #b4ccce #b3c0c8 #9eb9c2;
-    border-radius: 16px;
+    border-radius: 25px;
     outline: 0;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -269,15 +269,16 @@ body {
 } */
 .login:before {
   content: '';
-  position: ;
+  position: absolute;
   top: -8px;
   right: -8px;
   bottom: -8px;
   left: -8px;
   z-index: -1;
-  background: rgba(233, 151, 214, 0.863);
-  border-radius: 4px;
+  background: rgba(151, 166, 233, 0.863);
+  border-radius: 50px;
 }
+
  
 .login h1 {
   margin: -20px -20px 21px;
@@ -289,7 +290,7 @@ body {
   text-shadow: 0 1px white;
   background: #f3f3f3;
   border-bottom: 1px solid #cfcfcf;
-  border-radius: 3px 3px 0 0;
+  border-radius: 25px 25px 0 0;
   background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
   background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
   background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
@@ -345,7 +346,7 @@ input[type=text], input[type=password] {
   background: white;
   border: 1px solid;
   border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 2px;
+  border-radius: 25px;
   outline: 5px solid #eff4f7;
   -moz-outline-radius: 3px;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -368,7 +369,7 @@ input[type=submit] {
   background: #cde5ef;
   border: 1px solid;
   border-color: #b4ccce #b3c0c8 #9eb9c2;
-  border-radius: 16px;
+  border-radius: 25px;
   outline: 0;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -420,7 +421,7 @@ input[type=submit]:active {
   background: white;
   border: 1px solid;
   border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 2px;
+  border-radius: 25px;
   outline: 5px solid #eff4f7;
   -moz-outline-radius: 3px;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -456,10 +457,24 @@ input[type=submit]:active {
 
 .currentRead {
   color: green;
+  text-align: center;
+  width: 200px;
+  height: 34px;
+  background: rgba(105, 119, 40, 0.418);
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 20px;
 }
 
 .readBook {
-  color: green;
+  color: rgb(145, 63, 16);
+  text-align: center;
+  width: 200px;
+  height: 34px;
+  background: rgba(105, 119, 40, 0.418);
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 25px;
 }
 
 /* .loginPage {
