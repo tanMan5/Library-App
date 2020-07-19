@@ -1,15 +1,9 @@
+const {Op} = require('sequelize');
+
 const db = require("../models");
 
 module.exports = function(app) {
-  // Find all Books and return them to the user with res.json
-  // app.get("/api/members", function(req, res) {
-  //   db.Books.findAll({
-  //     include:[db.User]
-  //   }).then(function(dbBook) {
-  //     res.json(dbBook);
-  //     console.log(res.json(dbBook))
-  //   });
-  // });
+  
 
   app.post("/api/members", (req, res) => {
     // Create an Book
@@ -27,33 +21,37 @@ module.exports = function(app) {
 
 
   app.get("/api/members", function(req, res) {
+   
     db.Books.findAll({
-      // include: [db.Post]
     }).then(function(dbBook) {
       res.json(dbBook);
     });
   });
 
+  
+
   app.put("/api/members", function(req, res) {
-    console.log(req.body);
-    // const condition = "id = " + req.params.id;
     db.Books.update(
       req.body,
       {
         where: {
           id: req.body.id
         } 
-
-      // read: req.body.read
-    // }, condition, function(result) {
-    //   if (result.changedRows == 0) {
-    //     return res.status(404).end();
-    //     } else {
-    //       res.status(200).end();
-    //     }
     });
   });
 
+// 7-19-20
+app.get("/api/readbook", (req, res) => {
 
+  db.Books.findAll({
+        where: {
+          read: {
+            [Op.eq]: true
+          }
+        }
+      }).then(function(dbBook) {
+        res.json(dbBook);
+      });
+    });
 
 };
