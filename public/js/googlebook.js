@@ -47,6 +47,7 @@ $(".searchButton").on("click", e => {
   getBooks();
 });
 
+
 getBookList();
 getReadBookList();
 
@@ -123,6 +124,7 @@ function createBookDiv(bookData) {
         location.reload();
       }
     );
+    location.reload();
       getReadBookList();
   });
 // });
@@ -136,7 +138,11 @@ function createBookDiv(bookData) {
       for (let i = 0; i < data.length; i++) {
         
         console.log($(".member-id").text())
-        if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
+
+        // ######### REVIEW THIS WITH THE TEAM ###############
+        // if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
+                 if((data[i].read == false) && (data[i].UserId == 1)) {
+
           rowsToAdd.push(createBookDiv(data[i]));
         }
       }
@@ -198,7 +204,6 @@ function getReadBookList() {
   function renderReadBook(rows) {
     let readBookList = $(".readBook")
     if (rows.length) {
-      // console.log(rows);
       readBookList.append(rows);
     }
   }

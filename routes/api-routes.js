@@ -53,7 +53,5 @@ module.exports = function(app) {
       });
     }
   });
-// };
-
 
 };
