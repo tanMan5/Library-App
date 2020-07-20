@@ -140,8 +140,8 @@ function createBookDiv(bookData) {
         console.log($(".member-id").text())
 
         // ######### REVIEW THIS WITH THE TEAM ###############
-        // if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
-                 if((data[i].read == false) && (data[i].UserId == 1)) {
+        if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
+                //  if((data[i].read == false) && (data[i].UserId == 2)) {
 
           rowsToAdd.push(createBookDiv(data[i]));
         }
@@ -165,6 +165,7 @@ function createBookDiv(bookData) {
 
   function createReadBookDiv(bookRead) {
   let newDiv = $("<div></div>");
+  newDiv.addClass("readBooks")
   newDiv.data(bookRead);
   let id = bookRead.id;
 
@@ -193,8 +194,8 @@ function getReadBookList() {
       var rowsToAdd = [];
       
       for (let i = 0; i < data.length; i++) {
-        // if((data[i].read == true) && (data[i].UserId == $(".member-id").text())) {
-          if((data[i].read == true) && (data[i].UserId == 1)) {
+        if((data[i].read == true) && (data[i].UserId == $(".member-id").text())) {
+          // if((data[i].read == true) && (data[i].UserId == 2)) {
         rowsToAdd.push(createReadBookDiv(data[i]));
         }
     }
