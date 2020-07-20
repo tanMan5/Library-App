@@ -37,13 +37,8 @@
     bottom: -8px;
     left: -8px;
     z-index: -1;
-<<<<<<< HEAD
-    background: rgba(151, 166, 233, 0.863);
-    border-radius: 50px;
-=======
     background: rgb(224, 191, 233);
     border-radius: 4px;
->>>>>>> 48ee4bf65b5013a9855fa2ceb94a78f9146df4f2
   }
    
   .signup h1 {
@@ -194,13 +189,8 @@ body {
   bottom: -8px;
   left: -8px;
   z-index: -1;
-<<<<<<< HEAD
-  background: rgba(151, 166, 233, 0.863);
-  border-radius: 50px;
-=======
   background: rgb(224, 191, 233);
   border-radius: 4px;
->>>>>>> 48ee4bf65b5013a9855fa2ceb94a78f9146df4f2
 }
 
  
