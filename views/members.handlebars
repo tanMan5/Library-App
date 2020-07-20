@@ -2,7 +2,7 @@
     <div class="navbar-header">
         <p class="welcome">Welcome <span class="member-name"></span><span class="member-id"></span></p>
     </div>
-      <a class="navbar-brand pull-right logout" href="/logout">
+      <a class="navbar-brand pull-right" href="/logout">
         Logout
       </a>
   </div>
@@ -24,20 +24,22 @@
       </div>
 
     <div class="col-md-4">
-      <h4 class="currentRead">Currently Reading!</h4>
+      <h4 class="currentRead">CURRENTLY READING!</h4>
       <div class="bookSelected"></div>   
     </div>
 
     <div class="col-md-4">
-      <h4 class="readBook">Books Read!</h4>
-      <ul>
+      <h4 class="readBook">BOOKS READ!</h4>
+      <div class="readBookList"></div>
+      {{!-- <div class="readBook"></div>   --}}
+      {{!-- <ul>
         {{#each books}}
           {{#if newFinished}}
             {{> books/book-block newFinished=True}}
           {{/if}}
         {{/each}}
-      </ul>
-      <div class="bookRead"></div>
+      </ul> --}}
+      {{!-- <div class="bookRead"></div> --}}
     </div>
 
   </div>
@@ -53,3 +55,4 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
 <script type="text/javascript" src="js/googlebook.js"></script>
+
