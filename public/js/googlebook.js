@@ -140,8 +140,8 @@ function createBookDiv(bookData) {
         console.log($(".member-id").text())
 
         // ######### REVIEW THIS WITH THE TEAM ###############
-        // if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
-                 if((data[i].read == false) && (data[i].UserId == 1)) {
+        if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
+                //  if((data[i].read == false) && (data[i].UserId == 2)) {
 
           rowsToAdd.push(createBookDiv(data[i]));
         }
@@ -165,6 +165,7 @@ function createBookDiv(bookData) {
 
   function createReadBookDiv(bookRead) {
   let newDiv = $("<div></div>");
+  newDiv.addClass("readBooks")
   newDiv.data(bookRead);
   let id = bookRead.id;
 
@@ -191,10 +192,12 @@ function getReadBookList() {
     $.get("/api/readbook", function (data) {
       console.log(data)
       var rowsToAdd = [];
-      if(data.read = true ){
+      
       for (let i = 0; i < data.length; i++) {
+        if((data[i].read == true) && (data[i].UserId == $(".member-id").text())) {
+          // if((data[i].read == true) && (data[i].UserId == 2)) {
         rowsToAdd.push(createReadBookDiv(data[i]));
-      }
+        }
     }
       renderReadBook(rowsToAdd);
     });
@@ -202,7 +205,7 @@ function getReadBookList() {
 
   // A function for rendering the list of books to the page
   function renderReadBook(rows) {
-    let readBookList = $(".readBook")
+    let readBookList = $(".readBookList")
     if (rows.length) {
       readBookList.append(rows);
     }

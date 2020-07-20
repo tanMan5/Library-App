@@ -1,8 +1,11 @@
+  <link href="stylesheets/stylemain.css" rel="stylesheet">
+
+
 <nav class="navbar navbar-dark bg-info" role="navigation">
     <div class="navbar-header">
         <p class="welcome">Welcome <span class="member-name"></span><span class="member-id"></span></p>
     </div>
-      <a class="navbar-brand pull-right logout" href="/logout">
+      <a class="navbar-brand pull-right" href="/logout">
         Logout
       </a>
   </div>
@@ -29,15 +32,13 @@
     </div>
 
     <div class="col-md-4">
+
       <h4 class="readBook">Books Finished</h4>
-      <ul>
-        {{#each books}}
-          {{#if newFinished}}
-            {{> books/book-block newFinished=True}}
-          {{/if}}
-        {{/each}}
-      </ul>
-      <div class="bookRead"></div>
+    
+     
+      <div class="readBookList"></div>
+
+    
     </div>
 
   </div>
@@ -53,3 +54,4 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
 <script type="text/javascript" src="js/googlebook.js"></script>
+
