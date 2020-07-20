@@ -1,0 +1,103 @@
+.input {
+  border: 1px solid;
+  /* border-color: blue; */
+  border-radius: 1px;
+  outline: 5px solid #007bff;;
+}
+
+h4 {
+  text-align: center;
+}
+
+.eachBook {
+  margin-bottom: 15px;
+  background-color: #a3eaf5!important;
+  text-align: center;
+}
+
+.bookSelected {
+  margin-bottom: 15px;
+  background-color:  rgb(224, 191, 233);
+  text-align: center;
+}
+
+.readBooks {
+  margin-bottom: 15px;
+  background-color: #a3eaf5!important;
+  text-align: center;
+}
+  body {
+    font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+    /* color: #404040; */
+    background:white;
+   
+  /* background-image: url("/assets/images/bookbkg.jpeg"); */
+   opacity: 1;
+
+   /* filter: blur(8px); */
+  /* -webkit-filter: blur(8px); */
+  /* Full height */
+  height: 500px;
+  background-size: 100% 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    
+
+
+
+  .container {
+    margin: auto ;
+    width: 100%;
+  }
+
+   
+   
+  
+
+.btnWantRead {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.btnFinished {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-size: 14px;
+  padding-top: 0px;
+  margin-bottom: 5px;
+}
+
+.welcome {
+  font-size: 16px;
+  color: white;
+}
+
+.currentRead {
+  color: rgb(0, 9, 128);
+  font-weight: bold;
+  font-family: 'Krona One', sans-serif;
+}
+
+.readBook {
+  color: green;
+  font-weight: bold;
+  font-family: 'Krona One', sans-serif;
+}
+
+.bookTracker {
+  color: red;
+}
