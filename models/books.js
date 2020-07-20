@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   const Books = sequelize.define("Books", {
     read: {
       type: DataTypes.BOOLEAN,
-      default: false      
+      default: false
     },
     title: {
       type: DataTypes.STRING,
