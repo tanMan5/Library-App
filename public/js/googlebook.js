@@ -1,5 +1,3 @@
-
-
 function getBooks() {
   const APIKey = "AIzaSyA6IRz2PfBZ2HyZlTjr0QD9_nZqZctgFKg";
   const searchedBook = $(".input").val();
@@ -12,7 +10,6 @@ function getBooks() {
     url: queryURL,
     method: "GET"
   }).then(response => {
-    
     let title = "";
     let author = "";
     let image = "";
@@ -26,8 +23,8 @@ function getBooks() {
       );
       image = $(
         "<img class = 'image'><br><a href" +
-        response.items[i].volumeInfo.infoLink +
-        "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
+          response.items[i].volumeInfo.infoLink +
+          "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
       );
       author = $(
         "<p class = 'author'>" + response.items[i].volumeInfo.authors + "</p>"
@@ -46,7 +43,6 @@ $(".searchButton").on("click", e => {
   e.preventDefault();
   getBooks();
 });
-
 
 getBookList();
 getReadBookList();
@@ -76,138 +72,126 @@ $(document).on("click", ".btnWantRead", e => {
   }).then(() => {
     location.reload();
   });
-  
-  getBookList()
 
+  getBookList();
 });
-
 
 // Function for creating a new book div
 function createBookDiv(bookData) {
-  let newDiv = $("<div></div>");
+  const newDiv = $("<div></div>");
   newDiv.data(bookData);
-  let id = bookData.id;
+  const id = bookData.id;
 
-  let titlePara = $("<p>" + bookData.title + "</p>")
+  const titlePara = $("<p>" + bookData.title + "</p>");
   newDiv.append(titlePara);
 
   titlePara.addClass("title");
 
-
-
-  let authorPara = $("<p>" + bookData.title + "</p>")
+  const authorPara = $("<p>" + bookData.title + "</p>");
   newDiv.append(authorPara);
 
   authorPara.addClass("author");
 
-
-  let image = $("<img src='" + bookData.url + "'/>" + "<br>" +
-    "<button id = 'imgButton' class = 'btnFinished btn btn-warning'> Finished? </button></a>");
+  const image = $(
+    "<img src='" +
+      bookData.url +
+      "'/>" +
+      "<br>" +
+      "<button id = 'imgButton' class = 'btnFinished btn btn-warning'> Finished? </button></a>"
+  );
 
   newDiv.append(image);
   return newDiv;
 }
 
-
 // $(function () {
-  $(document).on("click", ".btnFinished", function (e) {
+$(document).on("click", ".btnFinished", function(e) {
+  const selectedBook = $(this)
+    .parent()
+    .data();
+  selectedBook.read = true;
+  console.log(selectedBook);
 
-    const selectedBook = $(this).parent().data();
-    selectedBook.read = true;
-    console.log(selectedBook);
-
-    $.ajax("/api/members", {
-      type: "PUT",
-      data: selectedBook
-    }).then(
-      function () {
-        location.reload();
-      }
-    );
+  $.ajax("/api/members", {
+    type: "PUT",
+    data: selectedBook
+  }).then(() => {
     location.reload();
-      getReadBookList();
   });
+  location.reload();
+  getReadBookList();
+});
 // });
 
-  // Function for retrieving books and getting them ready to be rendered to the page
-  function getBookList() {
-    $.get("/api/members", function (data) {
-      console.log(data)
-      
-      var rowsToAdd = [];
-      for (let i = 0; i < data.length; i++) {
-        
-        console.log($(".member-id").text())
+// Function for retrieving books and getting them ready to be rendered to the page
+function getBookList() {
+  $.get("/api/members", data => {
+    console.log(data);
 
-        // ######### REVIEW THIS WITH THE TEAM ###############
-        if((data[i].read == false) && (data[i].UserId == $(".member-id").text())) {
-                //  if((data[i].read == false) && (data[i].UserId == 2)) {
+    const rowsToAdd = [];
+    for (let i = 0; i < data.length; i++) {
+      console.log($(".member-id").text());
 
-          rowsToAdd.push(createBookDiv(data[i]));
-        }
+      // ######### REVIEW THIS WITH THE TEAM ###############
+      if (data[i].read == false && data[i].UserId == $(".member-id").text()) {
+        //  if((data[i].read == false) && (data[i].UserId == 2)) {
+
+        rowsToAdd.push(createBookDiv(data[i]));
       }
-      renderBookList(rowsToAdd);
-    });
-  }
-
-  // A function for rendering the list of books to the page
-  function renderBookList(rows) {
-    let bookList = $(".bookSelected")
-    if (rows.length) {
-      bookList.append(rows);
     }
+    renderBookList(rowsToAdd);
+  });
+}
 
+// A function for rendering the list of books to the page
+function renderBookList(rows) {
+  const bookList = $(".bookSelected");
+  if (rows.length) {
+    bookList.append(rows);
   }
+}
 
-
-
-
-
-  function createReadBookDiv(bookRead) {
-  let newDiv = $("<div></div>");
-  newDiv.addClass("readBooks")
+function createReadBookDiv(bookRead) {
+  const newDiv = $("<div></div>");
+  newDiv.addClass("readBooks");
   newDiv.data(bookRead);
-  let id = bookRead.id;
+  const id = bookRead.id;
 
-  let titlePara = $("<p>" + bookRead.title + "</p>")
+  const titlePara = $("<p>" + bookRead.title + "</p>");
   newDiv.append(titlePara);
 
   titlePara.addClass("title");
 
-  let authorPara = $("<p>" + bookRead.author + "</p>")
+  const authorPara = $("<p>" + bookRead.author + "</p>");
   newDiv.append(authorPara);
 
   authorPara.addClass("author");
 
-
-  let image = $("<img src='" + bookRead.url + "'/>");
+  const image = $("<img src='" + bookRead.url + "'/>");
 
   newDiv.append(image);
   return newDiv;
-}  
-
+}
 
 function getReadBookList() {
-    
-    $.get("/api/readbook", function (data) {
-      console.log(data)
-      var rowsToAdd = [];
-      
-      for (let i = 0; i < data.length; i++) {
-        if((data[i].read == true) && (data[i].UserId == $(".member-id").text())) {
-          // if((data[i].read == true) && (data[i].UserId == 2)) {
+  $.get("/api/readbook", data => {
+    console.log(data);
+    const rowsToAdd = [];
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].read == true && data[i].UserId == $(".member-id").text()) {
+        // if((data[i].read == true) && (data[i].UserId == 2)) {
         rowsToAdd.push(createReadBookDiv(data[i]));
-        }
+      }
     }
-      renderReadBook(rowsToAdd);
-    });
-  }
+    renderReadBook(rowsToAdd);
+  });
+}
 
-  // A function for rendering the list of books to the page
-  function renderReadBook(rows) {
-    let readBookList = $(".readBookList")
-    if (rows.length) {
-      readBookList.append(rows);
-    }
+// A function for rendering the list of books to the page
+function renderReadBook(rows) {
+  const readBookList = $(".readBookList");
+  if (rows.length) {
+    readBookList.append(rows);
   }
-
+}
