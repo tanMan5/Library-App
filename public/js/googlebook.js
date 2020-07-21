@@ -87,7 +87,7 @@ function createBookDiv(bookData) {
 
   titlePara.addClass("title");
 
-  const authorPara = $("<p>" + bookData.title + "</p>");
+  const authorPara = $("<p>" + bookData.author + "</p>");
   newDiv.append(authorPara);
 
   authorPara.addClass("author");
