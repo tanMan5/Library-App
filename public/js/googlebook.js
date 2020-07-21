@@ -80,7 +80,7 @@ $(document).on("click", ".btnWantRead", e => {
 function createBookDiv(bookData) {
   const newDiv = $("<div></div>");
   newDiv.data(bookData);
-  const id = bookData.id;
+  // const id = bookData.id;
 
   const titlePara = $("<p>" + bookData.title + "</p>");
   newDiv.append(titlePara);
@@ -105,7 +105,7 @@ function createBookDiv(bookData) {
 }
 
 // $(function () {
-$(document).on("click", ".btnFinished", function(e) {
+$(document).on("click", ".btnFinished", function() {
   const selectedBook = $(this)
     .parent()
     .data();
@@ -155,7 +155,7 @@ function createReadBookDiv(bookRead) {
   const newDiv = $("<div></div>");
   newDiv.addClass("readBooks");
   newDiv.data(bookRead);
-  const id = bookRead.id;
+  // const id = bookRead.id;
 
   const titlePara = $("<p>" + bookRead.title + "</p>");
   newDiv.append(titlePara);
