@@ -1,34 +1,44 @@
-  <link href="stylesheets/stylemain.css" rel="stylesheet">
+<link href="stylesheets/stylemain.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 
 
-<nav class="navbar navbar-dark bg-info" role="navigation">
+{{!-- <nav class="navbar navbar-dark bg-info" role="navigation"> --}}
+
+<nav class="navbar navigationBar" role="navigation">
     <div class="navbar-header">
         <p class="welcome">Welcome <span class="member-name"></span><span class="member-id"></span></p>
     </div>
-      <a class="navbar-brand pull-right" href="/logout">
+    <h1 class="bookTracker">Book Tracker</h1>
+      <a class="navbar-brand pull-right logout" href="/logout">
         Logout
       </a>
   </div>
 </nav>
   
  
-  <h1 class="bookTracker">Book Tracker</h1>
+  {{!-- <h1 class="bookTracker">Book Tracker</h1> --}}
       
   <br>
 
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div>
+         <h4 class="searchBook">Search a book</h4>
+        <form class="search" action="action_page.php">
+          <input class="input" type="text" placeholder="Enter book name here.." name="search">
+          <button class="searchButton" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        {{!-- <div>
           <input class="input" class="form-control mr-sm-2" type="search" placeholder="Search for book" aria-label="Search">
-          <button class="searchButton btn btn-primary" type="submit">Search</button>
-        </div>
+          <button class="searchButton btn btn-primary" type="submit"></button>
+        </div> --}}
         <div class="bookList"></div>
       </div>
 
     <div class="col-md-4">
       <h4 class="currentRead">Currently Reading</h4>
-      <div class="bookSelected"></div>   
+      <div class="bookSelected"></div>   <hr>
     </div>
 
     <div class="col-md-4">

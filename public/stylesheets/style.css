@@ -1,20 +1,16 @@
 
 
-.eachBook {
+/* .eachBook {
   margin-bottom: 15px;
-}
+} */
 
   body {
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-    /* color: #404040; */
-    /* background: #510cd228; */
    
   background-image: url("/assets/images/bookbkg.jpeg");
    opacity: 1;
 
-   /* filter: blur(8px); */
-  /* -webkit-filter: blur(8px); */
-  /* Full height */
+  
   height: 500px;
   background-size: 100% 100%;
 
@@ -24,17 +20,17 @@
   background-size: cover;
 }
     
-#bookTrackerMain {
-  font-family: 'Amatic SC', cursive;
+/* #bookTrackerMain {
+  font-family: 'Russo One', sans-serif;
   margin-bottom: 60px;
   padding-top: 20px;
   text-align: center;
   font-size: 60px;
   font-weight: bold;
   /* color: rgb(3, 56, 52); */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  /* color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
@@ -44,10 +40,10 @@
   z-index: 2;
   width: 100%;
   padding: 20px;
-  text-align: center;
+  text-align: center; */
   
-}
-
+/* } */
+ 
 
   
   
@@ -91,6 +87,7 @@
     left: -8px;
     z-index: -1;
     background: rgb(224, 191, 233);
+    /* background: rgba(140,212,212,1); */
     border-radius: 4px;
     opacity: 90%;
   }
@@ -147,7 +144,7 @@
     border: 1px solid;
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     border-radius: 2px;
-    outline: 5px solid #eff4f7;
+    /* outline: 5px solid #eff4f7; */
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -169,19 +166,19 @@
     border: 1px solid;
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     border-radius: 25px;
-    outline: 5px solid #eff4f7;
+    /* outline: 5px solid #eff4f7; */
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-  }
+  } 
    
-  input[type=text]:focus, input[type=email]:focus {
+  /* input[type=text]:focus, input[type=email]:focus {
     border-color: #7dc9e2;
     outline-color: #dceefc;
     outline-offset: 0;
-  }
+  } */
    
-  input[type=submit] {
+  /* input[type=submit] {
     padding: 0 18px;
     height: 29px;
     font-size: 12px;
@@ -202,13 +199,13 @@
     background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
     -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-  }
-  input[type=submit]:active {
+  } */
+  /* input[type=submit]:active {
     background: #cde5ef;
     border-color: #9eb9c2 #b3c0c8 #b4ccce;
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-  }
+  } */
 
 /* body {
   font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
@@ -244,6 +241,7 @@
   left: -8px;
   z-index: -1;
   background: rgb(224, 191, 233);
+  /* background: rgba(140,212,212,1); */
   border-radius: 4px;
   opacity: 90%;
 }
@@ -300,7 +298,7 @@ input[type=text], input[type=password] {
   border: 1px solid;
   border-color: #c4c4c4 #d1d1d1 #d4d4d4;
   border-radius: 25px;
-  outline: 5px solid #eff4f7;
+  /* outline: 5px solid #eff4f7; */
   -moz-outline-radius: 3px;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -366,7 +364,7 @@ input[type=submit]:active {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-.btnWantRead {
+/* .btnWantRead {
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -374,9 +372,9 @@ input[type=submit]:active {
 .btnFinished {
   margin-top: 5px;
   margin-bottom: 20px;
-}
+} */
 
-.title {
+/* .title {
   font-size: 16px;
   font-weight: bold;
   padding-top: 10px;
@@ -387,8 +385,8 @@ input[type=submit]:active {
   font-size: 14px;
   padding-top: 0px;
   margin-bottom: 5px;
-}
-
+} */
+/* 
 .welcome {
   font-size: 16px;
   color: white;
@@ -398,11 +396,12 @@ input[type=submit]:active {
   color: rgb(0, 9, 128);
   font-weight: bold;
   font-family: 'Krona One', sans-serif;
-}
+} */
 
-.readBook {
+/* .readBook {
   color: green;
   font-weight: bold;
   font-family: 'Krona One', sans-serif;
+ 
 }
-
+ */
