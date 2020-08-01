@@ -38,6 +38,7 @@ module.exports = function(app) {
         read: {
           [Op.eq]: true
         }
+        
       }
     }).then(dbBook => {
       res.json(dbBook);

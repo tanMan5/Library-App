@@ -1,9 +1,17 @@
-.input {
-  border: 1px solid;
+
+ 
+ .input { 
+  /* border: 1px solid; */
   /* border-color: blue; */
-  border-radius: 1px;
-  outline: 5px solid #007bff;;
+    border-radius: 0%;
+  /* outline: 5px solid white;; */
+  } 
+
+.navigationBar {
+  background-image: linear-gradient(to bottom, rgba(140,212,212,0), rgba(140,212,212,1));
 }
+
+
 
 h4 {
   text-align: center;
@@ -11,25 +19,36 @@ h4 {
 
 .eachBook {
   margin-bottom: 15px;
-  background-color: #a3eaf5!important;
+  /* background-color: #a3eaf5!important; */
+  background-image: linear-gradient(to top, rgba(140,212,212,0), rgba(140,212,212,1));
   text-align: center;
+  padding-bottom: 15px;
+  border-radius: 5%;
+  
 }
 
 .bookSelected {
   margin-bottom: 15px;
-  background-color:  rgb(224, 191, 233);
+  /* background-color:  rgb(224, 191, 233); */
+  background-image: linear-gradient(to top,rgb(234, 214, 240),rgb(234, 214, 240));
   text-align: center;
+  border-radius: 5%;
 }
 
 .readBooks {
   margin-bottom: 15px;
-  background-color: #a3eaf5!important;
+  /* background-color: #a3eaf5!important; */
   text-align: center;
+  padding-bottom: 15px;
+  border-radius: 5%;
+  background-image: linear-gradient(to top, rgba(140,212,212,0), rgba(140,212,212,1));
+  font-family: 'Russo One', sans-serif;
+  /* border-style: outset; */
 }
   body {
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     /* color: #404040; */
-    background:white;
+    background:rgb(241, 233, 223);
    
   /* background-image: url("/assets/images/bookbkg.jpeg"); */
    opacity: 1;
@@ -54,7 +73,10 @@ h4 {
     width: 100%;
   }
 
-   
+ .logout{
+   color: rgb(240, 6, 6);
+   font-weight: bold;
+ }  
    
   
 
@@ -83,21 +105,85 @@ h4 {
 
 .welcome {
   font-size: 16px;
-  color: white;
+  color: rgb(18, 95, 131);
+  /* color: #2196F3; */
+  
+}
+
+.searchBook {
+  color: #2196F3;
+  font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .currentRead {
   color: rgb(0, 9, 128);
   font-weight: bold;
-  font-family: 'Krona One', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  text-align: center;
+  margin-top: 30px;
+  padding: 5px;
+  border-block-start: 2px solid;
+  border-block-end: 6px solid;
+  font-size: 20px;
 }
 
 .readBook {
   color: green;
   font-weight: bold;
-  font-family: 'Krona One', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
+  margin-top: 30px;
+  padding: 5px;
+  border-block-start: 2px solid;
+  border-block-end: 6px solid;
 }
 
 .bookTracker {
-  color: red;
+  color: rgb(151, 12, 140);
+  font-family: 'Russo One', sans-serif;
+  font-size: 36px;
 }
+
+/* Style the search field */
+form.search input[type=text] {
+  /* padding: 10px; */
+  font-size: 17px;
+  border: 1px solid 2196F3;
+  float: left;
+  width: 70%;
+  margin: 0px;
+  background: #f1f1f1;
+  outline: none;
+  height: 42px;
+  border-radius: 0%;
+}
+
+/* Style the submit button */
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  margin-bottom: 10px ;
+}
+
+form.search button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+

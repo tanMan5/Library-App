@@ -23,7 +23,7 @@ function getBooks() {
       );
       image = $(
         "<img class = 'image'><br><a href" +
-          response.items[i].volumeInfo.infoLink +
+          // response.items[i].volumeInfo.infoLink +
           "><button id = 'imgButton' class = 'btnWantRead btn btn-warning'> Want to Read? </button></a>"
       );
       author = $(
@@ -97,7 +97,8 @@ function createBookDiv(bookData) {
       bookData.url +
       "'/>" +
       "<br>" +
-      "<button id = 'imgButton' class = 'btnFinished btn btn-warning'> Finished? </button></a>"
+      "<button id = 'imgButton' class = 'btnFinished btn btn-warning'> Finished? </button></a>" +
+      "<hr>"
   );
 
   newDiv.append(image);
@@ -133,8 +134,8 @@ function getBookList() {
       console.log($(".member-id").text());
 
       // ######### REVIEW THIS WITH THE TEAM ###############
-      if (data[i].read == false && data[i].UserId == $(".member-id").text()) {
-        //  if((data[i].read == false) && (data[i].UserId == 2)) {
+      // if (data[i].read == false && data[i].UserId == $(".member-id").text()) {
+         if((data[i].read == false) && (data[i].UserId == 1)) {
 
         rowsToAdd.push(createBookDiv(data[i]));
       }
@@ -179,8 +180,8 @@ function getReadBookList() {
     const rowsToAdd = [];
 
     for (let i = 0; i < data.length; i++) {
-      if (data[i].read == true && data[i].UserId == $(".member-id").text()) {
-        // if((data[i].read == true) && (data[i].UserId == 2)) {
+      // if (data[i].read == true && data[i].UserId == $(".member-id").text()) {
+        if((data[i].read == true) && (data[i].UserId == 1)) {
         rowsToAdd.push(createReadBookDiv(data[i]));
       }
     }
