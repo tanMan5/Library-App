@@ -21,6 +21,12 @@ When first entering the site, user is able to sign up or log in. If new user, th
 
 Once logged in, the main page appears with option to search for a book, mark it as Want to Read and Finished reading.
 
+![logIn](public/assets/images/logIn.PNG)
+
+![Search](public/assets/images/search.PNG)
+
+![finished](public/assets/images/finished.PNG)
+
 
 ## Built With
 
